@@ -5,7 +5,7 @@
   "license": "ISC",
   "author": "illia",
   "type": "commonjs",
-  "homepage": "https://illia-pro2025.github.io/countries_homeWork/",
+  "homepage": "illia-pro2025.github.io",
   "scripts": {
     "build": "parcel build src/index.html",
     "deploy": "gh-pages -d dist",
