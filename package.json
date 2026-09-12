@@ -8,7 +8,7 @@
   "homepage": "https://illia-pro2025.github.io/countries_homeWork/",
   "scripts": {
     "build": "parcel build src/index.html",
-    "deploy": "npx gh-pages -d dist",
+    "deploy": "gh-pages -d dist",
     "start": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
