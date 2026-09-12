@@ -1,0 +1,20 @@
+{
+  "name": "dz",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "illia",
+  "type": "commonjs",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@parcel/config-webextension": "^2.16.4",
+    "@parcel/transformer-js": "^2.0.0-nightly.662",
+    "@pnotify/core": "^5.2.0",
+    "lodash": "^4.18.1",
+    "parcel": "^2.16.4",
+    "pnotify": "^5.2.0"
+  }
+}

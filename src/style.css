@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f6f8;
+  color: #222;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+h1 {
+  margin: 0 0 30px;
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #2f3542;
+}
+
+.search-box {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: 55px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+
+  font-size: 20px;
+  color: #2f3542;
+
+  background-color: #fff;
+  border: 2px solid #dfe4ea;
+  border-radius: 8px;
+  outline: none;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.search-box::placeholder {
+  color: #a4a9b2;
+}
+
+.search-box:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+}
+
+/* Список країн */
+
+.country-list {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  padding: 0;
+
+  list-style: none;
+}
+
+.country-list li {
+  padding: 12px 20px;
+  margin-bottom: 8px;
+
+  font-size: 20px;
+  color: #2f3542;
+
+  background-color: #fff;
+  border-radius: 6px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+
+.country-list li:hover {
+  background-color: #f0f6ff;
+  transform: translateX(5px);
+}
+
+/* Інформація про країну */
+
+.country-info {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 40px;
+
+  padding: 35px;
+
+  background-color: #fff;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.country-info h2 {
+  margin: 0 0 25px;
+
+  font-size: 32px;
+  color: #2f3542;
+}
+
+.country-info p {
+  margin: 12px 0;
+
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.country-info b,
+.country-info strong {
+  color: #2f3542;
+}
+
+.country-info img {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+
+  border-radius: 4px;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Мови */
+
+.country-info ul {
+  margin: 8px 0 0;
+  padding-left: 25px;
+}
+
+.country-info li {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+/* Адаптивність */
+
+@media (max-width: 700px) {
+  .container {
+    padding: 30px 15px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .search-box {
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .country-info {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 25px;
+  }
+
+  .country-info h2 {
+    font-size: 27px;
+  }
+
+  .country-info p {
+    font-size: 18px;
+  }
+
+  .country-info img {
+    max-width: 300px;
+  }
+}
