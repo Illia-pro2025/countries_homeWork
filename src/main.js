@@ -1,4 +1,3 @@
-import debounce from "lodash/debounce";
 import fetchCountries from "./countries";
 import { notice, success, error } from "@pnotify/core";
 import "@pnotify/core/dist/PNotify.css";
@@ -20,41 +19,41 @@ function onSearch(event) {
   if (!searchQuery && searchQuery <= 2) {
     return;
   }
- 
-  fetching(searchQuery)
-}
- function fetching(searchQuery) {
-   fetchCountries(searchQuery)
-     .then((response) => {
-       if (!response.ok) {
-         throw new Error(response.status);
-       }
-       return response.json();
-     })
-     .then((data) => {
-       let countries = data.data.objects;
 
-       if (countries.length > 10) {
-         notice({
-           text: "Make your question more specific",
-           delay: 3000,
-           addClass: "country-notice",
-         });
-       } else if (countries.length >= 2 && countries.length <= 10) {
-         renderCountryList(countries);
-         return;
-       } else if (countries.length === 1) {
-         renderCountryInfo(countries[0]);
-       }
-     })
-     .catch(() => {
-       error({
-         text: "This country wasn't found. Try another.",
-         delay: 3000,
-         addClass: "country-error",
-       });
-     });
- }
+  fetching(searchQuery);
+}
+function fetching(searchQuery) {
+  fetchCountries(searchQuery)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      let countries = data.data.objects;
+
+      if (countries.length > 10) {
+        notice({
+          text: "Make your question more specific",
+          delay: 3000,
+          addClass: "country-notice",
+        });
+      } else if (countries.length >= 2 && countries.length <= 10) {
+        renderCountryList(countries);
+        return;
+      } else if (countries.length === 1) {
+        renderCountryInfo(countries[0]);
+      }
+    })
+    .catch(() => {
+      error({
+        text: "This country wasn't found. Try another.",
+        delay: 3000,
+        addClass: "country-error",
+      });
+    });
+}
 function renderCountryList(countries) {
   console.log(countries);
   const markup = countries
