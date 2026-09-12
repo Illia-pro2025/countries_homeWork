@@ -5,7 +5,10 @@
   "license": "ISC",
   "author": "illia",
   "type": "commonjs",
+  "homepage": "https://illia-pro2025.github.io/countries_homeWork/",
   "scripts": {
+    "build": "parcel build src/index.html",
+    "deploy": "npx gh-pages -d dist",
     "start": "parcel src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +19,8 @@
     "lodash": "^4.18.1",
     "parcel": "^2.16.4",
     "pnotify": "^5.2.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
