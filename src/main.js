@@ -16,11 +16,13 @@ function onSearch(event) {
   countryList.innerHTML = "";
   countryInfo.innerHTML = "";
 
-  if (!searchQuery && searchQuery <= 2) {
-    return;
+  if (searchQuery.length > 2) {
+    fetching(searchQuery);
   }
-
-  fetching(searchQuery);
+  notice({
+    text: "Write the word to search",
+    delay: 3000,
+  });
 }
 function fetching(searchQuery) {
   fetchCountries(searchQuery)
@@ -41,6 +43,10 @@ function fetching(searchQuery) {
         });
       } else if (countries.length >= 2 && countries.length <= 10) {
         renderCountryList(countries);
+        notice({
+          text: "find up to 10 countries",
+          delay: 3000,
+        });
         return;
       } else if (countries.length === 1) {
         renderCountryInfo(countries[0]);
@@ -84,7 +90,20 @@ function renderCountryInfo(country) {
   const languages = country.languages
     .map((language) => language.name)
     .join(", ");
-
+function controleCapital() {
+  let capital="capital is not defined"
+   if (country.capitals[0].name) {
+     capital = country.capitals[0].name;
+   }
+  return capital
+}
+function controleLang() {
+  let lang = "language is not defined";
+  if (languages) {
+    lang = languages;
+  }
+  return lang;
+}
   const markup = `
     <div class="country-info__content">
       <div>
@@ -92,7 +111,7 @@ function renderCountryInfo(country) {
 
         <p>
           <strong>Capital:</strong>
-          ${country.capitals[0].name}
+          ${controleCapital()}
         </p>
 
         <p>
@@ -102,7 +121,7 @@ function renderCountryInfo(country) {
 
         <p>
           <strong>Languages of origin:</strong>
-          ${languages}
+          ${controleLang()}
         </p>
       </div>
 
